@@ -3,8 +3,44 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <section id="showcase">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Check out my work below</p>
+    </section>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project">
+            <h3>Project One</h3>
+            <p>Description of project one.</p>
+        </div>
+        <div class="project">
+            <h3>Project Two</h3>
+            <p>Description of project two.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/js/script.js"></script>
+</body>
+
+</html>

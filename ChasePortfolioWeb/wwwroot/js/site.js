@@ -1,4 +1,24 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿$(document).ready(function () {
+    $("#contactForm").on("submit", function (event) {
+        event.preventDefault();
 
-// Write your JavaScript code.
+        var formData = {
+            name: $("#name").val(),
+            email: $("#email").val(),
+            message: $("#message").val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/Home/Contact",
+            data: formData,
+            success: function (response) {
+                alert("Message sent successfully!");
+                $("#contactForm")[0].reset();
+            },
+            error: function () {
+                alert("There was an error sending the message.");
+            }
+        });
+    });
+});
