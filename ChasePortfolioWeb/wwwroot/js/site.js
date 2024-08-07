@@ -22,3 +22,18 @@
         });
     });
 });
+
+$(document).ready(function () {
+    $(".navbar a").each(function (index) {
+        $(this).css('animation-delay', (index * 0.1) + 's');
+    });
+
+    $(".navbar a").hover(
+        function () {
+            $(this).animate({ paddingLeft: '25px' }, 300);
+        },
+        function () {
+            $(this).animate({ paddingLeft: '20px' }, 300);
+        }
+    );
+});

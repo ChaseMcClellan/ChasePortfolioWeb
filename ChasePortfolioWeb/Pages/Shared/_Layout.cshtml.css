@@ -46,3 +46,52 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: darkslateblue;
+    overflow: hidden;
+}
+
+    .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: auto;
+        transition: background-color 0.3s;
+    }
+
+        .navbar a:hover {
+            background-color: mediumslateblue;
+            color: white;
+            border-radius: 12px;
+        }
+
+    .navbar .right {
+        float: right;
+    }
+
+    .navbar a.logo {
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+@keyframes slideIn {
+    from {
+        margin-top: -50px;
+        opacity: 0;
+    }
+
+    to {
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+
+.navbar a {
+    animation: slideIn 0.5s;
+}
