@@ -3,7 +3,6 @@
   text-align: center;
   word-break: break-all;
 }
-
 a {
   color: #0077cc;
 }
@@ -48,7 +47,7 @@ body {
 }
 
 .navbar {
-    background-color: darkslateblue;
+    background-color: darkslategray;
     overflow: hidden;
 }
 
@@ -66,7 +65,7 @@ body {
     }
 
         .navbar a:hover {
-            background-color: mediumslateblue;
+            background-color: darkcyan;
             color: white;
             border-radius: 12px;
             font-family: 'Times New Roman', Times, serif;
@@ -100,7 +99,7 @@ body {
 }
 
 .footer {
-    background-color: darkslateblue;
+    background-color: darkslategray;
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -112,8 +111,10 @@ body {
     .footer a {
         color: #ffcc00;
         text-decoration: none;
+        color: darkorange;
     }
 
         .footer a:hover {
             text-decoration: underline;
+            color:lightyellow;
         }
