@@ -1,0 +1,44 @@
+﻿@page "/Algorithms"
+@inherits LayoutComponentBase
+@using System.Collections.Generic
+
+<h2>Algorithms</h2>
+
+<div class="form-group">
+    <label for="algorithmSelect">Select an Algorithm:</label>
+    <select id="algorithmSelect" class="form-control" @bind="selectedAlgorithm">
+        <option value="" disabled>Select an algorithm</option>
+        @foreach (var algorithm in algorithms)
+        {
+            <option value="@algorithm">@algorithm</option>
+        }
+    </select>
+</div>
+
+<div>
+    @if (!string.IsNullOrEmpty(selectedAlgorithm))
+    {
+        <div>
+            @switch (selectedAlgorithm)
+            {
+                case "Binary Search":
+                    <BinarySearch />
+                    break;
+                case "Bubble Sort":
+                    <BubbleSort />
+                    break;
+                case "Quick Sort":
+                    <QuickSort />
+                    break;
+                default:
+                    <p>Please select a valid algorithm.</p>
+                    break;
+            }
+        </div>
+    }
+</div>
+
+@code {
+    private string selectedAlgorithm;
+    private List<string> algorithms = new List<string> { "Binary Search", "Bubble Sort", "Quick Sort" };
+}

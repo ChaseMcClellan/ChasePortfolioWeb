@@ -5,9 +5,9 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChasePortfolioWeb", "ChasePortfolioWeb\ChasePortfolioWeb.csproj", "{61728DA5-A537-4F26-968D-5E86462492F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChasePortfolioWeb.BL", "ChasePortfolioWeb.BL\ChasePortfolioWeb.BL.csproj", "{DB6E53FE-9ABE-4AB3-8AF1-B8DFE9814CA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChasePortfolioWeb.BL", "ChasePortfolioWeb.BL\ChasePortfolioWeb.BL.csproj", "{DB6E53FE-9ABE-4AB3-8AF1-B8DFE9814CA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChasePortfolioWeb.PL", "ChasePortfolioWeb.PL\ChasePortfolioWeb.PL.csproj", "{7A59B22D-1E85-42C1-A3BF-1AB51D440CA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChasePortfolioWeb.PL", "ChasePortfolioWeb.PL\ChasePortfolioWeb.PL.csproj", "{7A59B22D-1E85-42C1-A3BF-1AB51D440CA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
