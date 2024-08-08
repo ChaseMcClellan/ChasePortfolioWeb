@@ -2,6 +2,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor(); // Add Blazor Server services
 
 var app = builder.Build();
 
@@ -21,5 +22,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapBlazorHub(); // Map Blazor Hub
+//app.MapFallbackToPage("/_Host"); // Fallback to the _Host page for Blazor routing
 
 app.Run();
