@@ -1,9 +1,8 @@
 ﻿@page "/Algorithms"
-@inherits LayoutComponentBase
-@using System.Collections.Generic
-
-<h2>Algorithms</h2>
-
+<br>
+<link rel="stylesheet" href="~/css/algorithms.css" asp-append-version="true" />
+<h3>Algorithms Playground</h3>
+<h4>A place where you can interact with some algoritms</h4>
 <div class="form-group">
     <label for="algorithmSelect">Select an Algorithm:</label>
     <select id="algorithmSelect" class="form-control" @bind="selectedAlgorithm">
@@ -38,7 +37,7 @@
     }
 </div>
 
-@code {
+@code{
     private string selectedAlgorithm;
     private List<string> algorithms = new List<string> { "Binary Search", "Bubble Sort", "Quick Sort" };
 }
