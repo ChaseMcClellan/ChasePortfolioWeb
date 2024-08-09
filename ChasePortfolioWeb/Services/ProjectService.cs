@@ -18,7 +18,7 @@ namespace ChasePortfolioWeb.Services
             },
             new Project
             {
-                Title = "ASP.Net Full stack website",
+                Title = "ASP.Net Full Stack Website",
                 Description = "Engineered a full stack application using ASP.Net framework. Designed a relational database hosted on Azure. Implemented features such as login, administrative roles, and shopping cart.\r\n",
                 ImageUrl = "https://devblogs.microsoft.com/aspnet/wp-content/uploads/sites/16/2019/04/BrandBlazor_nohalo_1000x.png",
                 ProjectUrl = "https://github.com/ChaseMcClellan/ChaseWebsite.git"

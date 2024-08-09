@@ -1,10 +1,10 @@
-﻿<canvas id="skillsChart" width="400" height="400"></canvas>
+﻿<canvas id="skillsChart" width="100" height="100"></canvas>
 <script>
     var ctx = document.getElementById('skillsChart').getContext('2d');
     var skillsChart = new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ['C#', 'ASP.NET Core', 'Entity Framework', 'JavaScript', 'SQL', 'Azure'],
+            labels: ['C#', 'ASP.NET', 'Java', 'JavaScript', 'SQL', 'C++'],
             datasets: [{
                 label: 'Skills',
                 data: [90, 85, 80, 70, 75, 65],
@@ -21,8 +21,3 @@
     });
 </script>
 
-
-@{
-
-
-}

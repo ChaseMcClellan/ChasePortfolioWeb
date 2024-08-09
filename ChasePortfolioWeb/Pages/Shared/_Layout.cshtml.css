@@ -43,7 +43,7 @@ button.accept-policy {
   line-height: 60px;
 }
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .navbar {
@@ -118,3 +118,29 @@ body {
             text-decoration: underline;
             color:lightyellow;
         }
+
+.banner {
+    background-color: darkgoldenrod;
+    color: white; 
+    text-align: center; 
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    font-size: 18px;
+}
+
+    .banner p {
+        margin: 0;
+        display: inline-block;
+    }
+
+#close-banner {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    margin-left: 20px;
+    cursor: pointer;
+}
