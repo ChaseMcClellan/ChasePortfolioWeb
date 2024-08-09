@@ -1,4 +1,4 @@
-
+using ChasePortfolioWeb.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
 builder.Services.AddServerSideBlazor(); // Add Blazor Server services
+builder.Services.AddSingleton<ProjectService>();
+
 
 var app = builder.Build();
 

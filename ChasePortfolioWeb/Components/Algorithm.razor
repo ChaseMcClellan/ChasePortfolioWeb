@@ -9,7 +9,7 @@
 <h4>A place where you can interact with some algoritms</h4>
 <br />
 <h5>Digital root in C#</h5>
-<input type="number" value="@n" @onchange="() => DigitalRoot(n)"/>
+<input type="number" @bind="@n" /><button class="btn-success" @onclick="() => DigitalRoot(n)">Go</button>
 <label>Digital root: @n</label>
 
 

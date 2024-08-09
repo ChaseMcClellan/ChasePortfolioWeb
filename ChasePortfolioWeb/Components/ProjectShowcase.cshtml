@@ -1,0 +1,11 @@
+﻿<div class="project-showcase">
+    @foreach (var project in Model)
+    {
+        <div class="project">
+            <img src="@project.ImageUrl" alt="@project.Title" />
+            <h3>@project.Title</h3>
+            <p>@project.Description</p>
+            <a href="@project.ProjectUrl" target="_blank">View Project</a>
+        </div>
+    }
+</div>

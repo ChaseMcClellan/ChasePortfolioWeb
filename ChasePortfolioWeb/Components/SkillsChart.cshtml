@@ -1,0 +1,30 @@
+﻿
+
+<canvas id="skillsChart" width="400" height="400"></canvas>
+<script>
+    var ctx = document.getElementById('skillsChart').getContext('2d');
+    var skillsChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['C#', 'ASP.NET Core', 'Entity Framework', 'JavaScript', 'SQL', 'Azure'],
+            datasets: [{
+                label: 'Skills',
+                data: [90, 85, 80, 70, 75, 65],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scale: {
+                ticks: { beginAtZero: true }
+            }
+        }
+    });
+</script>
+
+
+@{
+
+
+}
