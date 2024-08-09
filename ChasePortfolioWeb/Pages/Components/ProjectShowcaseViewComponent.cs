@@ -1,7 +1,7 @@
 ﻿using ChasePortfolioWeb.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ChasePortfolioWeb.Components
+namespace ChasePortfolioWeb.Pages.Components
 {
     public class ProjectShowcaseViewComponent : ViewComponent
     {
