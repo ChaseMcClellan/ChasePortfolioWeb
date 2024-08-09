@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace ChasePortfolioWeb.Pages.Components.SkillsChart
+namespace ChasePortfolioWeb.Pages.Components.ProjectShowcase
 {
     public class SkillsChartViewComponent : ViewComponent
     {
