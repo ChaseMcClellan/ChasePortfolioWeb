@@ -1,0 +1,10 @@
+﻿@page "/Resource"
+@model ChasePortfolioWeb.Pages.ResourceModel
+@using ChasePortfolioWeb.Pages.Components.RazorPages;
+<html>
+<body>
+    @(await Html.RenderComponentAsync<Resource>(RenderMode.Server))
+</body>
+</html>
+@{
+}
