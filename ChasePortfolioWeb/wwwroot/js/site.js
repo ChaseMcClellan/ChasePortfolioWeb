@@ -37,3 +37,17 @@ $(document).ready(function () {
         }
     );
 });
+
+$(document).ready(function () {
+    $('.cool-list li').on('click', function () {
+        $(this).toggleClass('clicked');
+    });
+
+    $('.cool-list li').on('mouseenter', function () {
+        $(this).css('box-shadow', '0 8px 16px rgba(0, 0, 0, 0.2)');
+    });
+
+    $('.cool-list li').on('mouseleave', function () {
+        $(this).css('box-shadow', '0 4px 6px rgba(0, 0, 0, 0.1)');
+    });
+});

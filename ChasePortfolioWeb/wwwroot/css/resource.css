@@ -1,0 +1,30 @@
+﻿
+
+.cool-list li.clicked {
+    background-color: #2ecc71;
+    transform: translateX(10px) scale(1.05);
+}
+
+
+.cool-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 300px;
+}
+
+    .cool-list li {
+        background-color: white;
+        color: white;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 10px;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+        .cool-list li:hover {
+            transform: translateX(10px);
+            background-color: #2980b9;
+        }

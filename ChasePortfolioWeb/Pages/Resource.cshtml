@@ -2,6 +2,8 @@
 @model ChasePortfolioWeb.Pages.ResourceModel
 @using ChasePortfolioWeb.Pages.Components.RazorPages;
 <html>
+
+<link rel="stylesheet" href="~/css/resource.css" asp-append-version="true" />
 <body>
     @(await Html.RenderComponentAsync<Resource>(RenderMode.Server))
 </body>
