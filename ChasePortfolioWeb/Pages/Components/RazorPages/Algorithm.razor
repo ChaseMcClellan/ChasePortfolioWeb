@@ -9,15 +9,18 @@
 <h4>A place where you can interact with some algoritms</h4>
 <br />
 <h5>Digital root in C#</h5>
-<input type="number" @bind="@n" /><button class="btn-success" @onclick="() => DigitalRoot(n)">Go</button>
-<label>Digital root: @n</label>
-
-
+<input type="number" @bind="@n" /><button class="btn-success" @onclick="() => DigitalRootManager()">Go</button>
+<label>Digital root: @rootNumber</label>
 
 
 @code{
     private int rootNumber;
     private int n;
+
+    private void DigitalRootManager()
+    {
+        rootNumber = DigitalRoot(n);
+    }
 
     private int DigitalRoot(int n)
     {
