@@ -1,6 +1,7 @@
 ﻿@page "/Resume"
 @model ChasePortfolioWeb.Pages.ResumeModel
 <link rel="stylesheet" href="~/css/resume.css" asp-append-version="true" />
+
 <br />
 <h2>Chase E. McClellan</h2>
 <p><a href="mailto:chasemcclellan387@gmail.com">ChaseMcClellan387@gmail.com</a></p>
@@ -73,8 +74,13 @@
 <button id="download-resume" class="download-button">Download PDF</button>
 
 <script>
-    document.getElementById('download-resume').addEventListener('click', function() {
-        window.open('/Chase McClellan Resume.pdf', '_blank');
+    document.getElementById('download-resume').addEventListener('click', function () {
+        const link = document.createElement('a');
+        link.href = '/docs/Chase_McClellan_Resume.pdf';
+        link.download = 'Chase_McClellan_Resume.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     });
 </script>
 

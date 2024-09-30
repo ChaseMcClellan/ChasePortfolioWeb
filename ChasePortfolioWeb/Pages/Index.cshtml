@@ -56,6 +56,7 @@ a:hover{
             <textarea id="message" name="message" required></textarea>
             <button type="submit">Send</button>
         </form>
+        <p id="formMessage"></p>
     </section>
 
     <script src="~/lib/jquery/jquery.min.js"></script>
@@ -63,4 +64,42 @@ a:hover{
     @*@await Component.InvokeAsync("SkillsChart")*@
 </body>
 </html>
+
+<script>
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const formMessage = document.getElementById("formMessage");
+        formMessage.textContent = '';
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        if (!name || !email || !message) {
+            formMessage.textContent = 'All fields are required!';
+            formMessage.style.color = 'red';
+            return;
+        }
+        fetch('https://your-backend-api.com/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: name, email: email, message: message })
+        })
+            .then(response => {
+                if (response.ok) {
+                    formMessage.textContent = 'Message sent successfully!';
+                    formMessage.style.color = 'green';
+                    document.getElementById("contactForm").reset();
+                } else {
+                    formMessage.textContent = 'There was an error sending the message. Please try again later.';
+                    formMessage.style.color = 'red';
+                }
+            })
+            .catch(error => {
+                formMessage.textContent = 'Something went wrong';
+                formMessage.style.color = 'red';
+            });
+    });
+</script>
 
