@@ -2,76 +2,126 @@
 @model ChasePortfolioWeb.Pages.ResumeModel
 <link rel="stylesheet" href="~/css/resume.css" asp-append-version="true" />
 
-<br />
-<h2>Chase E. McClellan</h2>
-<p><a href="mailto:chasemcclellan387@gmail.com">ChaseMcClellan387@gmail.com</a></p>
-    <p><a href ="mailto:mcclel54@uwm.edu">McClel54@uwm.edu</a>
+<head>
+    <meta charset="utf-8" />
+    <title>Chase E. McClellan Resume</title>
+</head>
 
-<h3>Motivated and detail-oriented software development internship candidate with experience in Java and C# programming. 
-    Possess a strong foundation in computer science theory and practice. Professional interests include software engineering, web development, 
-    and finance.</h3>
-<br />
-    <h4>Education</h4>
-<p>
-    <strong>Bachelor of Science in Computer Science</strong><br />
-    University of Wisconsin-Milwaukee, Milwaukee, WI - Dec 2025 </br> <strong>GPA: 3.86/4.0</strong>
-</p>
-<p>
-    <strong>Associate of Applied Science in Software Development</strong><br />
-    Fox Valley Technical College, Appleton, WI - May 2023<br />
-    Completed 54 credits towards degree before transferring.
-</p>
 
-<h4>Experience</h4>
-<p>
-    <strong>Software Developer – Internship</strong><br />
-    Waupaca Foundry Inc., Waupaca, WI - May 2024 - Aug 2024<br />
-    • Collaborated with a team to address the software needs of a medium-sized company.<br />
-    • Utilized SCRUM and Sprint methodologies.<br />
-    • Worked closely with senior developers on various projects.<br />
-    • Hosted code review meetings and embraced feedback to improve code quality.
-</p>
-<p>
-    <strong>Sales Associate</strong><br />
-    The Pool People, Stevens Point, WI - Jun 2021 - Jan 2022<br />
-    • Built and maintained relationships with customers.<br />
-    • Developed sales strategies as a team.
-</p>
 
-<h4>Technical Skills</h4>
-<ul>
-    <li>Programming Languages: C#, C++, Java, Python</li>
-    <li>Frameworks: .Net, .NET Core, ASP.NET, Blazor, Entity Framework, Django</li>
-    <li>Web Development: HTML/CSS, PHP, JavaScript, TypeScript, jQuery</li>
-    <li>Data Programming/Software: T-SQL, MySQL, Microsoft SQL Server, Perl, Excel, PowerBI</li>
-    <li>Version Control: GitHub, Azure DevOps, Bitbucket</li>
-</ul>
+<body>
+    <div class="align-content-center">
+        <button style="" id="download-resume" class="download-button">Download PDF</button>
+    </div>
+    <div class="resume">
+        <h1>Chase E. McClellan</h1>
+        <p class="contact-info">
+            715-513-0373 |
+            <a href="mailto:chasemcclellan387@gmail.com">chasemcclellan387@gmail.com</a> |
+            <a href="http://www.linkedin.com/in/chasemcclellan">LinkedIn</a> |
+            <a href="https://www.untapped.io/app/profile/chase-mcclellan">Untapped</a> |
+            <a href="https://github.com/ChaseMcClellan/">GitHub</a> |
+            <a href="https://chasemcclellan.com/">Personal Portfolio</a>
+        </p>
 
-<h4>Projects</h4>
-<p>
-    <strong>ASP.NET Website</strong><br />
-    • Engineered a full stack application using ASP.Net framework. Designed a relational database hosted on Azure.
-    Implemented features such as login, administrative roles, and shopping cart.<br />
-    <a href="https://github.com/ChaseMcClellan/ChaseWebsite.git">https://github.com/ChaseMcClellan/ChaseWebsite.git</a>
-</p>
-<p>
-    <strong>Discord Sound Bot</strong><br />
-    • Produced a simple soundboard bot using Discord’s development tools. Used C# programming and Discord API.
-    Includes simple command triggers and basic discord bot functions.<br />
-    <a href="https://github.com/ChaseMcClellan/DiscordSoundBot">https://github.com/ChaseMcClellan/DiscordSoundBot</a>
-</p>
+        <section class="section">
+            <h2 class="section-header">Summary</h2>
+            <p>
+                Motivated and detail-oriented intern candidate with experience in Python and Java programming.
+                Possesses a strong foundation in computer science theory and practice. Professional interests include
+                software engineering, machine learning, and GPU programming. Academic interests include the
+                application of linear algebra, computational mathematics, and theoretical computer science.
+            </p>
+        </section>
 
-<h4>Involvment</h4>
-<p>
-    <strong>Resident Assistant</strong><br />
-    University of Wisconsin-Milwaukee Housing - Aug 2024 - Current
-</p>
-<!--<p>
-    <strong>Undergraduate Reserch</strong></br>
-    University of Wisconsin-Milwaukee
-</p>-->
+        <section class="section">
+            <h2 class="section-header">Education</h2>
+            <div>
+                <h3>Bachelor of Science in Computer Science | Minor in Mathematics</h3>
+                <p>
+                    Dec 2025<br />
+                    University of Wisconsin-Milwaukee, Milwaukee, WI<br />
+                    GPA: 3.65/4
+                </p>
+            </div>
+            <div>
+                <h3>Associate of Applied Science in Software Development</h3>
+                <p>
+                    May 2023<br />
+                    Fox Valley Technical College, Appleton, WI<br />
+                    GPA: 3.43/4<br />
+                    Completed 54 credits for degree before transferring.
+                </p>
+            </div>
+        </section>
 
-<button id="download-resume" class="download-button">Download PDF</button>
+        <section class="section">
+            <h2 class="section-header">Experience</h2>
+            <div>
+                <h3>Resident Assistant</h3>
+                <p>
+                    Aug 2024 - Present<br />
+                    University of Wisconsin-Milwaukee Housing, Milwaukee, WI
+                </p>
+                <ul>
+                    <li>Assist ~50 students in housing needs, providing guidance and encouraging academic and personal development.</li>
+                    <li>Communicate effectively with residents and housing administrators to carry out responsibilities.</li>
+                    <li>Enforce housing policies to create a safe and respectful living environment.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Software Developer – Internship</h3>
+                <p>
+                    May 2024 - Aug 2024<br />
+                    Waupaca Foundry Inc., Waupaca, WI
+                </p>
+                <ul>
+                    <li>Collaborated with a team to address the software needs of a leading manufacturing company.</li>
+                    <li>Utilized Agile methodologies such as Scrum and Sprints.</li>
+                    <li>Hosted code review meetings and incorporated peer feedback to enhance code quality.</li>
+                    <li>Implemented frameworks such as .NET, Blazor, and Dapper ORM.</li>
+                    <li>Optimized software projects and database queries.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-header">Technical Skills</h2>
+            <ul>
+                <li>Data Tools: Microsoft Azure, GitHub, Excel, Pytorch, Anaconda, Pandas, NumPy</li>
+                <li>Database: MySQL, T-SQL, PostgreSQL, Microsoft SQL Server</li>
+                <li>Programming Languages: Python, Java, C#, C/C++, CUDA, MATLAB, Visual Basic</li>
+                <li>Frameworks: .NET Core, ASP.NET, Blazor, Entity Framework, Dapper, Django</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2 class="section-header">Projects</h2>
+            <div>
+                <h3>Lower-Upper Decomposition Parallel Programming with CUDA</h3>
+                <ul>
+                    <li>Implemented LU decomposition using CUDA to demonstrate parallel programming techniques.</li>
+                    <li>Utilized GPU kernels for an optimized experience that integrates linear algebra with high-performance computing.</li>
+                    <li>
+                        <a href="https://github.com/ChaseMcClellan/LUDecompCUDA">GitHub Repository</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3>Mandelbrot Fractal in OpenGL</h3>
+                <ul>
+                    <li>Developed an interactive Mandelbrot fractal using OpenGL.</li>
+                    <li>Employed GLSL shaders to render the fractal using GPU processes, featuring gradient-based color mapping, interactive controls, and dynamic iteration scaling.</li>
+                    <li>
+                        <a href="https://github.com/ChaseMcClellan/MandelbrotDemo2024">GitHub Repository</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+
+
 
 <script>
     document.getElementById('download-resume').addEventListener('click', function () {
