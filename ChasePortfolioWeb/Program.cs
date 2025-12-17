@@ -1,4 +1,5 @@
 using ChasePortfolioWeb.Services;
+using MudBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
 builder.Services.AddServerSideBlazor(); // Add Blazor Server services
+builder.Services.AddMudServices();
 builder.Services.AddSingleton<ProjectService>();
 
 
