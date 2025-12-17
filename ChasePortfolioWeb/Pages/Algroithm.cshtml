@@ -1,10 +1,4 @@
-﻿@page "/Algorithms"
-@using ChasePortfolioWeb.Pages.Components.RazorPages;
+@page "/Algorithms"
 @model ChasePortfolioWeb.Pages.AlgroithmModel
-<html>
-    <body>
-    @(await Html.RenderComponentAsync<Algorithm>(RenderMode.Server))
-    </body>
-</html>
-@{
-}
+
+@await Html.RenderComponentAsync<ChasePortfolioWeb.Pages.Components.RazorPages.Algorithm>(RenderMode.ServerPrerendered)

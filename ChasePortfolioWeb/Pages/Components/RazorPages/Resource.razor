@@ -1,23 +1,53 @@
-﻿@page "/Resource"
-@using Microsoft.AspNetCore.Components.Web
-@using Microsoft.AspNetCore.Razor;
-<br />
-<body>
-    <h3>Resident Resources</h3>
-    <ul class="cool-list">
-        <li><a href="https://uwmil.instructure.com/login/saml/15">UWM Student Canvas</a></li>
-        <li><a href="https://www.microsoft.com/en-us/microsoft-365/outlook/log-in">Outlook</a></li>
-        <li><a href="https://uwm.edu/wellness/">Student Health and Wellness</a></li>
-        <li><a href=""></a></li>
-        <li><a href=""></a></li>
-        <li><a href="https://uwm.edu/studentinvolvement/events/category/uwm-campus-events/">Events this week</a></li>
-        <li><a href="https://uwm.edu/housing/roommate-suitemate-agreement/"><strong>Suitemate Agreement</strong></a></li>
-        <li><a href="https://uwm.webtma.com/?tkn=zIC9FzhQ1XN3X5Osf5bjvxypF4ImE9ZPiH_L8L1Qh9xYslH2LORtMeHFVhenX2SttfBO2Ve3wwe6XiPTv7UmSRhDJ8VBowae3S3rxDM2owTUYXlrjpCNYvxz-h_LTQoxbFNpFdOEiv6CDYb-wxR5_j-RSJBiFpYZavRd1kNBNkJ-0Mx4ZaYekqE_xsfljsHGQToRZPd_C_MU7jc3CVLJTmq0_KWoEVti6EIK_H4sLO_c8AHsx3TtVVUAMnCAeAmGrRhTp02hwznrqWm1d_vUwQ">Work orders</a></li>
-    </ul>
-</body>
+@page "/Resource"
 
-
+<PortfolioScaffold PageTitle="Resident Resources" PageSubtitle="Quick launchpad for the links I rely on every day">
+    <MudGrid Class="g-4">
+        <MudItem xs="12" md="7">
+            <MudPaper Elevation="1" Class="glass-panel p-4">
+                <MudText Typo="Typo.h5" Class="mb-3">Resources</MudText>
+                <MudList Dense="true">
+                    @foreach (var resource in Resources)
+                    {
+                        <MudListItem Icon="@resource.Icon" IconColor="Color.Primary" Href="@resource.Url" Target="_blank">
+                            <MudText Typo="Typo.subtitle1">@resource.Title</MudText>
+                            <MudText Class="text-muted">@resource.Description</MudText>
+                        </MudListItem>
+                    }
+                </MudList>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" md="5">
+            <MudPaper Elevation="1" Class="gradient-border p-4">
+                <MudText Typo="Typo.h5" Class="mb-2">Campus pulse</MudText>
+                <MudTimeline>
+                    <MudTimelineItem Icon="@Icons.Material.Filled.Bolt" Color="Color.Primary" TextColor="Color.Primary">
+                        <div class="mb-1 fw-semibold">Speedy access</div>
+                        <div class="text-muted">Launch the most-used services with one tap.</div>
+                    </MudTimelineItem>
+                    <MudTimelineItem Icon="@Icons.Material.Filled.Security" Color="Color.Secondary">
+                        <div class="mb-1 fw-semibold">Secure navigation</div>
+                        <div class="text-muted">Links open in new tabs so you never lose your place.</div>
+                    </MudTimelineItem>
+                    <MudTimelineItem Icon="@Icons.Material.Filled.Waves" Color="Color.Primary">
+                        <div class="mb-1 fw-semibold">Neon aesthetic</div>
+                        <div class="text-muted">Dark canvas with neon blue accents keeps things readable.</div>
+                    </MudTimelineItem>
+                </MudTimeline>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</PortfolioScaffold>
 
 @code {
+    private List<ResourceLink> Resources { get; } = new()
+    {
+        new ResourceLink("UWM Student Canvas", "Learning hub for assignments", "https://uwmil.instructure.com/login/saml/15", Icons.Material.Filled.School),
+        new ResourceLink("Outlook", "Stay on top of campus mail", "https://www.microsoft.com/en-us/microsoft-365/outlook/log-in", Icons.Material.Filled.Email),
+        new ResourceLink("Student Health & Wellness", "Support and wellness services", "https://uwm.edu/wellness/", Icons.Material.Filled.Favorite),
+        new ResourceLink("Events this week", "What's happening around campus", "https://uwm.edu/studentinvolvement/events/category/uwm-campus-events/", Icons.Material.Filled.Event),
+        new ResourceLink("Suitemate Agreement", "Set expectations with roommates", "https://uwm.edu/housing/roommate-suitemate-agreement/", Icons.Material.Filled.Handshake),
+        new ResourceLink("Work orders", "Request maintenance fast", "https://uwm.webtma.com/?tkn=zIC9FzhQ1XN3X5Osf5bjvxypF4ImE9ZPiH_L8L1Qh9xYslH2LORtMeHFVhenX2SttfBO2Ve3wwe6XiPTv7UmSRhDJ8VBowae3S3rxDM2owTUYXlrjpCNYvxz-h_LTQoxbFNpFdOEiv6CDYb-wxR5_j-RSJBiFpYZavRd1kNBNkJ-0Mx4ZaYekqE_xsfljsHGQToRZPd_C_MU7jc3CVLJTmq0_KWoEVti6EIK_H4sLO_c8AHsx3TtVVUAMnCAeAmGrRhTp02hwznrqWm1d_vUwQ", Icons.Material.Filled.Build)
+    };
 
+    private record ResourceLink(string Title, string Description, string Url, string Icon);
 }
