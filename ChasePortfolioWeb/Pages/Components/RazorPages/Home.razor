@@ -1,0 +1,115 @@
+@page "/"
+@inject ProjectService ProjectService
+
+<PortfolioScaffold PageTitle="Neon Nights" PageSubtitle="A MudBlazor-powered look at what I build and why I love .NET">
+    <MudGrid Class="g-6">
+        <MudItem xs="12" md="7">
+            <MudPaper Elevation="1" Class="gradient-border p-4">
+                <MudText Typo="Typo.h4" Class="mb-2">Hey, I'm Chase.</MudText>
+                <MudText Class="mb-3 text-muted">I craft reliable, intuitive experiences with Blazor, C#, and cloud-backed APIs. Here's a curated tour powered by MudBlazor's modern components.</MudText>
+                <MudStack Row="true" Spacing="2" AlignItems="Center">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.PlayArrow" Link="/Algorithms">Explore playground</MudButton>
+                    <MudButton Variant="Variant.Outlined" Color="Color.Primary" StartIcon="@Icons.Material.Filled.Description" Link="/Resume">View resume</MudButton>
+                </MudStack>
+                <MudChipSet Class="mt-4" MultiSelection="true">
+                    <MudChip Color="Color.Primary" StartIcon="@Icons.Material.Filled.Speed">Blazing fast UIs</MudChip>
+                    <MudChip Color="Color.Secondary" StartIcon="@Icons.Material.Filled.Security">Secure patterns</MudChip>
+                    <MudChip Color="Color.Primary" StartIcon="@Icons.Material.Filled.AutoAwesome">Delightful polish</MudChip>
+                </MudChipSet>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" md="5">
+            <MudPaper Elevation="1" Class="glass-panel p-4">
+                <MudText Typo="Typo.h5" Class="mb-2">Live stats</MudText>
+                <MudStack Spacing="1">
+                    <MudProgressLinear Color="Color.Primary" Value="88" Class="mb-2" Rounded="true" BufferValue="100" />
+                    <MudText Class="text-muted">.NET expertise</MudText>
+                    <MudProgressLinear Color="Color.Secondary" Value="82" Class="mb-2" Rounded="true" />
+                    <MudText Class="text-muted">Cloud ready code</MudText>
+                    <MudProgressLinear Color="Color.Info" Value="90" Class="mb-2" Rounded="true" />
+                    <MudText Class="text-muted">UI polish & accessibility</MudText>
+                </MudStack>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+
+    <MudDivider Class="my-6" />
+
+    <MudText Typo="Typo.h4" Class="mb-2">Featured builds</MudText>
+    <MudText Class="mb-4 text-muted">MudCards, carousels, media, and call-to-actions show off recent work.</MudText>
+    <MudCarousel Class="mb-6" Elevation="0" Bullets="true" AutoCycle="true" CycleInterval="7000">
+        @foreach (var project in Projects)
+        {
+            <MudCarouselItem>
+                <MudCard Class="glass-panel p-4">
+                    <MudCardHeader>
+                        <MudText Typo="Typo.h5">@project.Title</MudText>
+                    </MudCardHeader>
+                    <MudCardMedia Height="180px" Image="@project.ImageUrl" Class="rounded-lg" />
+                    <MudCardContent>
+                        <MudText Class="mb-2">@project.Description</MudText>
+                        <MudStack Row="true" Spacing="1">
+                            <MudChip Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Code">C#</MudChip>
+                            <MudChip Color="Color.Secondary" Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Cloud">Azure</MudChip>
+                        </MudStack>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Color="Color.Primary" Variant="Variant.Outlined" Href="@project.ProjectUrl" Target="_blank" Disabled="string.IsNullOrWhiteSpace(project.ProjectUrl)">View repo</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudCarouselItem>
+        }
+    </MudCarousel>
+
+    <MudGrid Class="g-4 align-center">
+        <MudItem xs="12" md="6">
+            <MudPaper Elevation="1" Class="glass-panel p-4">
+                <MudText Typo="Typo.h5" Class="mb-2">Contact</MudText>
+                <MudText Class="mb-3 text-muted">Drop a note and let's talk about building experiences that feel as good as they look.</MudText>
+                <MudForm @ref="_form" OnValidSubmit="SubmitContact">
+                    <MudTextField @bind-Value="_contact.Name" Label="Name" Required="true" Color="Color.Primary" />
+                    <MudTextField @bind-Value="_contact.Email" Label="Email" Required="true" Color="Color.Primary" Class="mt-2" />
+                    <MudTextField @bind-Value="_contact.Message" Label="Message" Lines="4" Required="true" Color="Color.Primary" Class="mt-2" />
+                    <MudStack Row="true" Spacing="2" Class="mt-3">
+                        <MudButton Type="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.Send">Send message</MudButton>
+                        <MudButton Variant="Variant.Text" Color="Color.Secondary" StartIcon="@Icons.Material.Filled.Chat" Href="https://www.linkedin.com/in/chasemcclellan" Target="_blank">LinkedIn</MudButton>
+                    </MudStack>
+                </MudForm>
+                @if (!string.IsNullOrWhiteSpace(_status))
+                {
+                    <MudText Class="mt-3" Color="Color.Info">@_status</MudText>
+                }
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" md="6">
+            <MudPaper Elevation="1" Class="gradient-border p-4">
+                <MudText Typo="Typo.h5" Class="mb-2">Highlights</MudText>
+                <MudList Dense="true">
+                    <MudListItem Icon="@Icons.Material.Filled.CheckCircle" IconColor="Color.Primary">Server-side Blazor with live interactivity</MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.CheckCircle" IconColor="Color.Primary">Reusable MudBlazor shell & hero cards</MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.CheckCircle" IconColor="Color.Primary">Animations via MudSlide and MudFade</MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.CheckCircle" IconColor="Color.Primary">Neon blue palette with glassmorphism</MudListItem>
+                </MudList>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</PortfolioScaffold>
+
+@code {
+    private List<Project> Projects => ProjectService.GetProjects();
+    private MudForm? _form;
+    private readonly ContactModel _contact = new();
+    private string? _status;
+
+    private void SubmitContact()
+    {
+        _status = $"Thanks, {_contact.Name}! I'll follow up at {_contact.Email}.";
+    }
+
+    private class ContactModel
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Message { get; set; } = string.Empty;
+    }
+}

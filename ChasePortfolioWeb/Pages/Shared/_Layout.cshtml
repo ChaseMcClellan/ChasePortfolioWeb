@@ -1,66 +1,32 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="_content/MudBlazor/MudBlazor.min.css" />
     <link rel="stylesheet" href="~/ChasePortfolioWeb.styles.css" asp-append-version="true" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="~/js/site.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Space Grotesk', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at 10% 20%, rgba(56, 182, 255, 0.12), transparent 25%),
+                        radial-gradient(circle at 90% 10%, rgba(30, 64, 175, 0.12), transparent 25%),
+                        radial-gradient(circle at 70% 80%, rgba(14, 165, 233, 0.08), transparent 28%),
+                        #050914;
+            color: #e7f5ff;
+            min-height: 100vh;
+        }
+        a { color: inherit; }
+    </style>
 </head>
-
 <body>
-    <div id="site-banner" class="banner">
-        <p>This website is currently under development. Some features may not work as expected.</p>
-        <button class="btn-primary" id="close-banner">Close</button>
-    </div>
-    <script>
-        document.getElementById("close-banner").addEventListener("click", function () {
-            document.getElementById("site-banner").style.display = "none";
-        });
-    </script>
-    <header>
-        <nav>
-            <div class="container">
-                <div class="navbar">
-                    <a href="/" class="logo">Chase's Portfolio</a>
-                    <a href="/">Home</a>
-                    <a href="/Resume">Resume</a>
-                    <a href="/Algorithms">Algorithms</a>
-                    <a href="/Chase">Chase</a>
-                    <a href="/Resource">Resident Resources</a>
-                    <div class="right">
-                        <a href="https://www.linkedin.com/in/chasemcclellan"><img src="images/LI-In-Bug.png" hight="50px" width="40px" /></a>
-                        <a href="https://www.untapped.io/app/profile/chase-mcclellan"><img src="images/betteruntapped.jpeg" hight="50px" width="40px" /></a>
-                        <a href="https://github.com/ChaseMcClellan/"><img src="images/githublogo.png" hight="50px" width="40px" /></a>
-                    </div>
-                    
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    @RenderBody()
 
-    <footer class="footer">
-        <p>&copy; 2024 Chase McClellan. All rights reserved.</p>
-        <p>
-            Connect with me on
-            <a href="https://www.linkedin.com/in/yourprofile">LinkedIn</a>,
-            <a href="https://untapped.com/yourprofile">Untapped</a> and
-            <a href="https://github.com/ChaseMcClellan/">GitHub</a>.
-        </p>
-    </footer>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="_content/MudBlazor/MudBlazor.min.js"></script>
     <script src="_framework/blazor.server.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

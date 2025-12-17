@@ -1,0 +1,133 @@
+<MudThemeProvider Theme="_theme" IsDarkMode="true">
+    <MudCssBaseline />
+    <MudSnackbarProvider PreventDuplicates="true" MaxDisplayedSnackbars="3" Position="MudBlazor.SnackbarPosition.TopCenter" />
+
+    <MudLayout Class="neon-shell">
+        <MudAppBar Elevation="0" Dense="true" Class="glass-bar px-6 py-3">
+            <MudText Typo="Typo.h6" Class="fw-bold">Chase McClellan</MudText>
+            <MudSpacer />
+            <MudButton Variant="Variant.Text" Color="Color.Primary" Link="/" StartIcon="@Icons.Material.Filled.Home">Home</MudButton>
+            <MudButton Variant="Variant.Text" Color="Color.Primary" Link="/Resume" StartIcon="@Icons.Material.Filled.Description">Resume</MudButton>
+            <MudButton Variant="Variant.Text" Color="Color.Primary" Link="/Algorithms" StartIcon="@Icons.Material.Filled.AutoAwesomeMotion">Algorithms</MudButton>
+            <MudButton Variant="Variant.Text" Color="Color.Primary" Link="/Resource" StartIcon="@Icons.Material.Filled.Upcoming">Resources</MudButton>
+            <MudDivider Vertical="true" Class="mx-3" />
+            <MudIconButton Icon="@Icons.Custom.Brands.LinkedIn" Color="Color.Primary" Href="https://www.linkedin.com/in/chasemcclellan" Target="_blank" />
+            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Primary" Href="https://github.com/ChaseMcClellan/" Target="_blank" />
+        </MudAppBar>
+
+        <MudMainContent>
+            <MudContainer MaxWidth="xl" Class="py-8">
+                <MudSlide Transition="Transition.SlideDown" Class="fade-shell">
+                    <MudPaper Elevation="0" Class="glass-panel px-6 py-6">
+                        <MudText Typo="Typo.h3" Class="fw-semibold">@PageTitle</MudText>
+                        @if (!string.IsNullOrWhiteSpace(PageSubtitle))
+                        {
+                            <MudText Typo="Typo.subtitle1" Class="text-muted mb-4">@PageSubtitle</MudText>
+                        }
+                        @if (HeaderContent is not null)
+                        {
+                            <MudPaper Elevation="0" Class="mt-4 mb-2 gradient-border">
+                                @HeaderContent
+                            </MudPaper>
+                        }
+                        <MudDivider Class="mb-4 mt-4" />
+                        <MudFade>
+                            @ChildContent
+                        </MudFade>
+                    </MudPaper>
+                </MudSlide>
+            </MudContainer>
+        </MudMainContent>
+
+        <MudFooter Elevation="0" Class="glass-bar py-4">
+            <MudContainer MaxWidth="xl" Class="d-flex align-center">
+                <MudText Typo="Typo.body2" Class="text-muted">© 2024 Chase McClellan · Crafted with MudBlazor</MudText>
+                <MudSpacer />
+                <MudChipSet>
+                    <MudChip Color="Color.Primary" Variant="Variant.Filled" Label="true">Blazor</MudChip>
+                    <MudChip Color="Color.Secondary" Variant="Variant.Outlined" Label="true">.NET 7</MudChip>
+                    <MudChip Color="Color.Primary" Variant="Variant.Outlined" Label="true">Neon</MudChip>
+                </MudChipSet>
+            </MudContainer>
+        </MudFooter>
+    </MudLayout>
+</MudThemeProvider>
+
+<style>
+    .neon-shell {
+        min-height: 100vh;
+        background: transparent;
+    }
+
+    .glass-bar {
+        background: rgba(12, 20, 37, 0.8);
+        border-bottom: 1px solid rgba(56, 182, 255, 0.3);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .glass-panel {
+        background: linear-gradient(140deg, rgba(12, 20, 37, 0.9), rgba(6, 12, 24, 0.92));
+        border: 1px solid rgba(56, 182, 255, 0.28);
+        box-shadow: 0 20px 55px rgba(0, 0, 0, 0.45), 0 0 28px rgba(56, 182, 255, 0.15);
+        border-radius: 20px;
+    }
+
+    .gradient-border {
+        border-radius: 16px;
+        border: 1px solid rgba(99, 102, 241, 0.5);
+        box-shadow: 0 0 20px rgba(56, 182, 255, 0.18);
+        background: linear-gradient(120deg, rgba(56, 182, 255, 0.1), rgba(59, 130, 246, 0.08));
+    }
+
+    .fade-shell {
+        animation: floatIn 0.8s ease;
+    }
+
+    @keyframes floatIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+@code {
+    [Parameter] public string PageTitle { get; set; } = "";
+    [Parameter] public string? PageSubtitle { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public RenderFragment? HeaderContent { get; set; }
+
+    private readonly MudTheme _theme = new()
+    {
+        PaletteDark = new PaletteDark
+        {
+            Primary = "#38B6FF",
+            Secondary = "#60A5FA",
+            Tertiary = "#00E5FF",
+            Surface = "#0B1224",
+            Background = "#050914",
+            AppbarBackground = "#0F172A",
+            DrawerBackground = "#0B1224",
+            TextPrimary = "#E2E8F0",
+            TextSecondary = "#94A3B8",
+            Divider = "rgba(148, 163, 184, 0.3)",
+            ActionDefault = "#38B6FF"
+        },
+        LayoutProperties = new LayoutProperties
+        {
+            DefaultBorderRadius = "16px"
+        },
+        Typography = new Typography
+        {
+            Default = new Default() { FontFamily = new[] { "Space Grotesk", "Inter", "Segoe UI", "sans-serif" } },
+            H3 = new H3() { FontWeight = 700 },
+            H4 = new H4() { FontWeight = 700 }
+        }
+    };
+}

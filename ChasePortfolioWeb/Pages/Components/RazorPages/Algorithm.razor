@@ -1,195 +1,150 @@
-﻿@page "/Algorithms"
-@using Microsoft.AspNetCore.Components.Web
+@page "/Algorithms"
 
-<br>
-<link rel="stylesheet" href="~/css/algorithms.css" asp-append-version="true" />
+<PortfolioScaffold PageTitle="Algorithm Playground" PageSubtitle="Interactive MudBlazor-powered utilities with live feedback">
+    <MudGrid Class="g-4 mb-4">
+        <MudItem xs="12" md="6">
+            <MudPaper Elevation="1" Class="glass-panel p-4">
+                <MudText Typo="Typo.h5" Class="mb-2">Pick an algorithm</MudText>
+                <MudText Class="mb-3 text-muted">Instantly explore logic in a neon themed lab.</MudText>
+                <MudSelect T="string" @bind-Value="selectedAlgorithm" Label="Algorithm" Color="Color.Primary">
+                    <MudSelectItem Value="DigitalRoot">Digital Root</MudSelectItem>
+                    <MudSelectItem Value="Fibonacci">Fibonacci</MudSelectItem>
+                    <MudSelectItem Value="Factorial">Factorial</MudSelectItem>
+                    <MudSelectItem Value="BinarySearch">Binary Search</MudSelectItem>
+                    <MudSelectItem Value="BST">Binary Search Tree</MudSelectItem>
+                </MudSelect>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" md="6">
+            <MudPaper Elevation="1" Class="gradient-border p-4">
+                <MudText Typo="Typo.h5" Class="mb-2">Why this matters</MudText>
+                <MudList Dense="true">
+                    <MudListItem Icon="@Icons.Material.Filled.FlashOn" IconColor="Color.Primary">Responsive MudBlazor inputs with live validation.</MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.GridView" IconColor="Color.Primary">SVG visualization styled by the neon palette.</MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.Hub" IconColor="Color.Primary">Server-side compute with instant UI updates.</MudListItem>
+                </MudList>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
 
-<h3>Algorithms Playground</h3>
-<h4>A place where you can interact with some algorithms</h4>
-<br />
-
-<h5>Select an Algorithm</h5>
-<select @bind="selectedAlgorithm">
-    <option value="DigitalRoot">Digital Root</option>
-    <option value="Fibonacci">Fibonacci</option>
-    <option value="Factorial">Factorial</option>
-    <option value="BinarySearch">Binary Search</option>
-    <option value="BST">Binary Search Tree Visualization</option>
-</select>
-
-<br />
-<br />
-
-@if (selectedAlgorithm == "DigitalRoot")
-{
-    <h5>Digital root in C#</h5>
-    <input type="number" @bind="n" />
-    <button class="btn-success" @onclick="() => DigitalRootManager()">Go</button>
-    <label>Digital root: @rootNumber</label>
-}
-else if (selectedAlgorithm == "Fibonacci")
-{
-    <h5>Fibonacci in C#</h5>
-    <input type="number" @bind="n" />
-    <button class="btn-success" @onclick="() => FibonacciManager()">Go</button>
-    <label>Fibonacci number: @fibNumber</label>
-}
-else if (selectedAlgorithm == "Factorial")
-{
-    <h5>Factorial in C#</h5>
-    <input type="number" @bind="n" />
-    <button class="btn-success" @onclick="() => FactorialManager()">Go</button>
-    <label>Factorial: @factNumber</label>
-}
-else if (selectedAlgorithm == "BinarySearch")
-{
-    <h5>Binary Search in C#</h5>
-    <label>Enter a comma-separated list of integers:</label>
-    <input type="text" @bind="inputArray" />
-    <label>Enter the target number:</label>
-    <input type="number" @bind="target" />
-    <button class="btn-success" @onclick="() => BinarySearchManager()">Go</button>
-    <label>Binary Search result: @binarySearchResult</label>
-}else if(selectedAlgorithm == "BST")
-{
-    <h5>Binary Search Tree Visualization</h5>
-    <label>Insert a value:</label>
-    <input type="number" @bind="bstValue" />
-    <button class="btn-success" @onclick="() => InsertValueIntoBST()">Insert</button>
-    
-    <h5>BST Structure:</h5>
-    <svg width="1000" height="600">
-        @foreach (var edge in edges)
-        {
-            <line x1="@edge.X1" y1="@edge.Y1" x2="@edge.X2" y2="@edge.Y2" stroke="black" stroke-width="2"/>
-        }
-        @foreach (var node in nodes)
-        {
-            <circle cx="@node.X" cy="@node.Y" r="20" stroke="black" stroke-width="2" fill="lightblue"/>
-           @:<text x="@node.X" y="@node.Y + 5" text-anchor="middle" font-size="12" fill="black">@node.Value</text>
-        }
-    </svg>
-}
+    <MudSlide Transition="Transition.SlideUp">
+        <MudPaper Elevation="1" Class="glass-panel p-4 mb-6">
+            @if (selectedAlgorithm == "DigitalRoot")
+            {
+                <MudText Typo="Typo.h5" Class="mb-2">Digital Root</MudText>
+                <MudNumericField @bind-Value="n" Label="Number" Required="true" Color="Color.Primary" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Pin" Class="mb-3" />
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Calculate" OnClick="DigitalRootManager">Compute</MudButton>
+                <MudAlert Severity="Severity.Info" Class="mt-3">Digital root: <strong>@rootNumber</strong></MudAlert>
+            }
+            else if (selectedAlgorithm == "Fibonacci")
+            {
+                <MudText Typo="Typo.h5" Class="mb-2">Fibonacci</MudText>
+                <MudNumericField @bind-Value="n" Label="Index" Required="true" Color="Color.Primary" Class="mb-3" />
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Calculate" OnClick="FibonacciManager">Compute</MudButton>
+                <MudAlert Severity="Severity.Info" Class="mt-3">Fibonacci number: <strong>@fibNumber</strong></MudAlert>
+            }
+            else if (selectedAlgorithm == "Factorial")
+            {
+                <MudText Typo="Typo.h5" Class="mb-2">Factorial</MudText>
+                <MudNumericField @bind-Value="n" Label="Input" Required="true" Color="Color.Primary" Class="mb-3" />
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Calculate" OnClick="FactorialManager">Compute</MudButton>
+                <MudAlert Severity="Severity.Info" Class="mt-3">Factorial: <strong>@factNumber</strong></MudAlert>
+            }
+            else if (selectedAlgorithm == "BinarySearch")
+            {
+                <MudText Typo="Typo.h5" Class="mb-2">Binary Search</MudText>
+                <MudTextField @bind-Value="inputArray" Label="Comma separated numbers" Color="Color.Primary" Placeholder="2,4,6,8,10" />
+                <MudNumericField @bind-Value="target" Label="Target" Color="Color.Primary" Class="mt-2" />
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Search" Class="mt-2" OnClick="BinarySearchManager">Search</MudButton>
+                <MudAlert Severity="Severity.Info" Class="mt-3">@binarySearchResult</MudAlert>
+            }
+            else if (selectedAlgorithm == "BST")
+            {
+                <MudText Typo="Typo.h5" Class="mb-2">Binary Search Tree</MudText>
+                <MudNumericField @bind-Value="bstValue" Label="Value to insert" Color="Color.Primary" />
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Class="mt-2" OnClick="InsertValueIntoBST">Insert</MudButton>
+                <MudAlert Severity="Severity.Info" Class="mt-3">Tap Insert to grow the neon tree.</MudAlert>
+                <MudPaper Elevation="0" Class="mt-4 gradient-border p-3">
+                    <svg width="100%" height="320">
+                        @foreach (var edge in edges)
+                        {
+                            <line x1="@edge.X1" y1="@edge.Y1" x2="@edge.X2" y2="@edge.Y2" stroke="#38B6FF" stroke-width="2" opacity="0.6" />
+                        }
+                        @foreach (var node in nodes)
+                        {
+                            <circle cx="@node.X" cy="@node.Y" r="18" stroke="#60A5FA" stroke-width="2" fill="rgba(56, 182, 255, 0.2)" />
+                            @:<text x="@node.X" y="@node.Y + 5" text-anchor="middle" font-size="12" fill="#E2E8F0">@node.Value</text>
+                        }
+                    </svg>
+                </MudPaper>
+            }
+        </MudPaper>
+    </MudSlide>
+</PortfolioScaffold>
 
 @code {
     private string selectedAlgorithm = "DigitalRoot";
     private int n;
 
-    #region DigitalRoot
     private int rootNumber;
+    private void DigitalRootManager() => rootNumber = DigitalRoot(n);
+    private int DigitalRoot(int value) => value < 10 ? value : DigitalRoot(value % 10 + DigitalRoot(value / 10));
 
-    private void DigitalRootManager()
-    {
-        rootNumber = DigitalRoot(n);
-    }
-
-    private int DigitalRoot(int n)
-    {
-        if (n < 10) return n;
-        return DigitalRoot(n % 10 + DigitalRoot(n / 10));
-    }
-    #endregion
-
-    #region Fibonacci
     private int fibNumber;
+    private void FibonacciManager() => fibNumber = Fibonacci(n);
+    private int Fibonacci(int value) => value <= 1 ? value : Fibonacci(value - 1) + Fibonacci(value - 2);
 
-    private void FibonacciManager()
-    {
-        fibNumber = Fibonacci(n);
-    }
-
-    private int Fibonacci(int n)
-    {
-        if (n <= 1) return n;
-        return Fibonacci(n - 1) + Fibonacci(n - 2);
-    }
-    #endregion
-
-    #region Factorial
     private int factNumber;
+    private void FactorialManager() => factNumber = Factorial(n);
+    private int Factorial(int value) => value == 0 ? 1 : value * Factorial(value - 1);
 
-    private void FactorialManager()
-    {
-        factNumber = Factorial(n);
-    }
-
-    private int Factorial(int n)
-    {
-        if (n == 0) return 1;
-        return n * Factorial(n - 1);
-    }
-    #endregion
-
-    #region BinarySearch
-    private string inputArray; // For comma-separated input
+    private string inputArray = string.Empty;
     private int target;
-    private string binarySearchResult;
+    private string binarySearchResult = "Awaiting input...";
 
     private void BinarySearchManager()
     {
         try
         {
-            // Parse the inputArray and sort it
-            int[] array = inputArray.Split(',').Select(int.Parse).OrderBy(x => x).ToArray();
+            int[] array = inputArray.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).OrderBy(x => x).ToArray();
             int resultIndex = BinarySearch(array, target);
-
-            if (resultIndex != -1)
-            {
-                binarySearchResult = $"Found at index {resultIndex} in the sorted array.";
-            }
-            else
-            {
-                binarySearchResult = "Not found in the array.";
-            }
+            binarySearchResult = resultIndex != -1
+                ? $"Found at index {resultIndex} in the sorted array."
+                : "Not found in the array.";
         }
         catch
         {
-            binarySearchResult = "Invalid input.";
+            binarySearchResult = "Invalid input. Use commas between numbers.";
         }
     }
 
-    private int BinarySearch(int[] array, int target)
+    private int BinarySearch(int[] array, int targetValue)
     {
         int left = 0;
         int right = array.Length - 1;
-
         while (left <= right)
         {
             int mid = left + (right - left) / 2;
-
-            if (array[mid] == target)
-                return mid;
-
-            if (array[mid] < target)
-                left = mid + 1;
-            else
-                right = mid - 1;
+            if (array[mid] == targetValue) return mid;
+            if (array[mid] < targetValue) left = mid + 1; else right = mid - 1;
         }
-
-        return -1; // If not found
+        return -1;
     }
-    #endregion
 
-    #region BST
-    // BST related variables
     private int bstValue;
     private BSTNode? root;
-    private List<BSTNodePosition> nodes = new();
-    private List<BSTEdge> edges = new();
+    private readonly List<BSTNodePosition> nodes = new();
+    private readonly List<BSTEdge> edges = new();
 
     private class BSTNode
     {
         public int Value { get; set; }
-        public BSTNode Left { get; set; }
-        public BSTNode Right { get; set; }
+        public BSTNode? Left { get; set; }
+        public BSTNode? Right { get; set; }
 
-        public BSTNode(int value)
-        {
-            Value = value;
-        }
+        public BSTNode(int value) => Value = value;
     }
 
-    // Struct to represent positions of nodes for rendering in SVG
     private class BSTNodePosition
     {
         public int X { get; set; }
@@ -197,7 +152,6 @@ else if (selectedAlgorithm == "BinarySearch")
         public int Value { get; set; }
     }
 
-    // Struct to represent edges between nodes in SVG
     private class BSTEdge
     {
         public int X1 { get; set; }
@@ -206,48 +160,35 @@ else if (selectedAlgorithm == "BinarySearch")
         public int Y2 { get; set; }
     }
 
-    // Insert a value into the BST
     private void InsertValueIntoBST()
     {
         root = InsertNode(root, bstValue);
         nodes.Clear();
         edges.Clear();
-        CalculateNodePositions(root, 500, 50, 200);
+        CalculateNodePositions(root, 400, 30, 260);
     }
 
-    // Insert function for the BST
-    private BSTNode InsertNode(BSTNode node, int value)
+    private BSTNode InsertNode(BSTNode? node, int value)
     {
-        if (node == null)
-            return new BSTNode(value);
-
-        if (value < node.Value)
-            node.Left = InsertNode(node.Left, value);
-        else if (value > node.Value)
-            node.Right = InsertNode(node.Right, value);
-
+        if (node == null) return new BSTNode(value);
+        if (value < node.Value) node.Left = InsertNode(node.Left, value);
+        else if (value > node.Value) node.Right = InsertNode(node.Right, value);
         return node;
     }
 
-    // Calculate positions of nodes and edges for visualization
-    private void CalculateNodePositions(BSTNode node, int x, int y, int horizontalSpacing)
+    private void CalculateNodePositions(BSTNode? node, int x, int y, int spacing)
     {
         if (node == null) return;
-
-        // Add the current node to the list with its position
         nodes.Add(new BSTNodePosition { X = x, Y = y, Value = node.Value });
-
-        // Draw edges to children if they exist
         if (node.Left != null)
         {
-            edges.Add(new BSTEdge { X1 = x, Y1 = y, X2 = x - horizontalSpacing / 2, Y2 = y + 80 });
-            CalculateNodePositions(node.Left, x - horizontalSpacing / 2, y + 80, horizontalSpacing / 2);
+            edges.Add(new BSTEdge { X1 = x, Y1 = y, X2 = x - spacing / 2, Y2 = y + 80 });
+            CalculateNodePositions(node.Left, x - spacing / 2, y + 80, spacing / 2);
         }
         if (node.Right != null)
         {
-            edges.Add(new BSTEdge { X1 = x, Y1 = y, X2 = x + horizontalSpacing / 2, Y2 = y + 80 });
-            CalculateNodePositions(node.Right, x + horizontalSpacing / 2, y + 80, horizontalSpacing / 2);
+            edges.Add(new BSTEdge { X1 = x, Y1 = y, X2 = x + spacing / 2, Y2 = y + 80 });
+            CalculateNodePositions(node.Right, x + spacing / 2, y + 80, spacing / 2);
         }
     }
-    #endregion
 }

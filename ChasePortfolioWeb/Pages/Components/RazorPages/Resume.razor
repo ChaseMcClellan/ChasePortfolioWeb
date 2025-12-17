@@ -1,0 +1,79 @@
+@page "/Resume"
+
+<PortfolioScaffold PageTitle="Resume" PageSubtitle="Dark theme resume with neon call-outs">
+    <MudGrid Class="g-4">
+        <MudItem xs="12" md="7">
+            <MudPaper Elevation="1" Class="glass-panel p-4">
+                <MudText Typo="Typo.h5" Class="mb-2">Chase E. McClellan</MudText>
+                <MudText Class="mb-3 text-muted"><a href="mailto:chasemcclellan387@gmail.com">ChaseMcClellan387@gmail.com</a> · <a href="mailto:mcclel54@uwm.edu">McClel54@uwm.edu</a></MudText>
+                <MudText Class="mb-4">Motivated and detail-oriented software developer. I love mixing clean architecture with vibrant UI.</MudText>
+
+                <MudText Typo="Typo.h6" Class="mb-2">Education</MudText>
+                <MudTimeline Dense="true">
+                    <MudTimelineItem Icon="@Icons.Material.Filled.School" Color="Color.Primary">
+                        <div class="fw-semibold">Bachelor of Science in Computer Science</div>
+                        <div class="text-muted">University of Wisconsin-Milwaukee — Dec 2025 · GPA: 3.86</div>
+                    </MudTimelineItem>
+                    <MudTimelineItem Icon="@Icons.Material.Filled.School" Color="Color.Secondary">
+                        <div class="fw-semibold">Associate of Applied Science in Software Development</div>
+                        <div class="text-muted">Fox Valley Technical College — Completed 54 credits before transfer.</div>
+                    </MudTimelineItem>
+                </MudTimeline>
+
+                <MudText Typo="Typo.h6" Class="mb-2 mt-4">Experience</MudText>
+                <MudExpansionPanels Elevation="0" Class="mb-2">
+                    <MudExpansionPanel Text="Software Developer – Internship, Waupaca Foundry Inc.">
+                        <MudList Dense="true">
+                            <MudListItem>Collaborated in SCRUM teams to ship internal tools.</MudListItem>
+                            <MudListItem>Worked closely with senior developers and code reviews.</MudListItem>
+                            <MudListItem>Improved code quality through feedback and iteration.</MudListItem>
+                        </MudList>
+                    </MudExpansionPanel>
+                    <MudExpansionPanel Text="Sales Associate, The Pool People">
+                        <MudList Dense="true">
+                            <MudListItem>Built and maintained client relationships.</MudListItem>
+                            <MudListItem>Developed sales strategies as a team.</MudListItem>
+                        </MudList>
+                    </MudExpansionPanel>
+                </MudExpansionPanels>
+
+                <MudText Typo="Typo.h6" Class="mb-2 mt-4">Projects</MudText>
+                <MudList Dense="true">
+                    <MudListItem Icon="@Icons.Material.Filled.Web" IconColor="Color.Primary">
+                        <MudText Typo="Typo.subtitle1">ASP.NET Website</MudText>
+                        <MudText Class="text-muted">Full stack app with Azure-backed database, auth roles, and cart.</MudText>
+                        <MudLink Href="https://github.com/ChaseMcClellan/ChaseWebsite.git" Target="_blank">GitHub repo</MudLink>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.HeadsetMic" IconColor="Color.Primary">
+                        <MudText Typo="Typo.subtitle1">Discord Sound Bot</MudText>
+                        <MudText Class="text-muted">Discord bot using C# and Discord API with custom triggers.</MudText>
+                        <MudLink Href="https://github.com/ChaseMcClellan/DiscordSoundBot" Target="_blank">GitHub repo</MudLink>
+                    </MudListItem>
+                </MudList>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" md="5">
+            <MudPaper Elevation="1" Class="gradient-border p-4 mb-4">
+                <MudText Typo="Typo.h5" Class="mb-2">Technical Skills</MudText>
+                <MudChipSet Class="mb-2" MultiSelection="true">
+                    <MudChip Color="Color.Primary" Variant="Variant.Filled">C# / C++ / Java / Python</MudChip>
+                    <MudChip Color="Color.Secondary" Variant="Variant.Filled">.NET / ASP.NET / Blazor</MudChip>
+                    <MudChip Color="Color.Primary" Variant="Variant.Filled">Entity Framework</MudChip>
+                    <MudChip Color="Color.Secondary" Variant="Variant.Filled">SQL &amp; Data</MudChip>
+                    <MudChip Color="Color.Primary" Variant="Variant.Filled">JavaScript / TypeScript</MudChip>
+                </MudChipSet>
+                <MudChipSet Class="mb-2" MultiSelection="true">
+                    <MudChip Color="Color.Secondary" Variant="Variant.Filled">Django</MudChip>
+                    <MudChip Color="Color.Primary" Variant="Variant.Filled">PowerBI &amp; Excel</MudChip>
+                    <MudChip Color="Color.Secondary" Variant="Variant.Filled">GitHub / DevOps</MudChip>
+                </MudChipSet>
+            </MudPaper>
+
+            <MudPaper Elevation="1" Class="glass-panel p-4">
+                <MudText Typo="Typo.h5" Class="mb-2">Download</MudText>
+                <MudText Class="mb-3 text-muted">Grab a PDF copy of my resume anytime.</MudText>
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" Href="/docs/Chase_McClellan_Resume.pdf" StartIcon="@Icons.Material.Filled.Download">Download PDF</MudButton>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</PortfolioScaffold>

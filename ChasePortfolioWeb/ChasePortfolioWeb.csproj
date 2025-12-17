@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ChasePortfolioWeb.BL\ChasePortfolioWeb.BL.csproj" />
+    <PackageReference Include="MudBlazor" Version="6.21.0" />
   </ItemGroup>
 
 </Project>
